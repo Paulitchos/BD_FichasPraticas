@@ -1,12 +1,10 @@
-EXEC NALUNO (2020121705);
-
 --EX 3:
 3.
 select TITULO, PRECO_TABELA
 from LIVROS
 WHERE PRECO_TABELA = (SELECT MAX(PRECO_TABELA)
                       FROM LIVROS
-                      WHERE lower(genero) like '%informática%');
+                      WHERE lower(genero) like '%informÃ¡tica%');
 ;
 
 
@@ -16,10 +14,10 @@ EXEC SQLCHECK('FHKFRNECWCGPKRJ');
 4.
 select TITULO, PRECO_TABELA
 from LIVROS
-WHERE lower(genero) like '%informática%' 
+WHERE lower(genero) like '%informÃ¡tica%' 
 and PRECO_TABELA >= ALL(SELECT PRECO_TABELA
                       FROM LIVROS
-                      WHERE lower(genero) like '%informática%');
+                      WHERE lower(genero) like '%informÃ¡tica%');
 ;
 
 EXEC SQLCHECK('FHMJGDUDTFPFLEE'); 
@@ -28,10 +26,10 @@ EXEC SQLCHECK('FHMJGDUDTFPFLEE');
 5.
 SELECT TITULO, PRECO_TABELA
 FROM LIVROS OUTERLIV
-WHERE lower(genero) like '%informática%' 
+WHERE lower(genero) like '%informÃ¡tica%' 
 and not exists (SELECT PRECO_TABELA
 FROM LIVROS
-WHERE lower(genero) like '%informática%' and LIVROS.PRECO_TABELA > OUTERLIV.PRECO_TABELA);
+WHERE lower(genero) like '%informÃ¡tica%' and LIVROS.PRECO_TABELA > OUTERLIV.PRECO_TABELA);
 ;
 
 EXEC SQLCHECK('FHFYVFEEGWWUMOF'); 
@@ -41,7 +39,7 @@ EXEC SQLCHECK('FHFYVFEEGWWUMOF');
 select TITULO, tab.PRECO_TABELA as "PRECO_TABELA"
 from livros, (select max(preco_tabela) PRECO_TABELA
               from LIVROS
-              where lower(genero) like '%informática%' 
+              where lower(genero) like '%informÃ¡tica%' 
               ) tab
 where livros.preco_tabela = tab.PRECO_TABELA
 ;
