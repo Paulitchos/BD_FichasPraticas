@@ -1,5 +1,3 @@
-EXEC NALUNO (2020121705);
-
 --exerc3
 Select a.codigo_autor, a.nome,l.titulo,l.preco_tabela,e.codigo_editora
 From autores a, livros l,editoras e,(Select max(li.preco_tabela)maiscaro
