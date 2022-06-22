@@ -1,11 +1,9 @@
-EXEC NALUNO (2020121705);
-
 --Ex 3:
 
 3.
 SELECT TITULO
 FROM LIVROS, AUTORES
-WHERE LIVROS.CODIGO_AUTOR = AUTORES.CODIGO_AUTOR and LIVROS.GENERO = 'Policial' and AUTORES.NOME = 'Cláudio Tereso';
+WHERE LIVROS.CODIGO_AUTOR = AUTORES.CODIGO_AUTOR and LIVROS.GENERO = 'Policial' and AUTORES.NOME = 'ClÃ¡udio Tereso';
 
 EXEC SQLCHECK('FCRJGVRAWCUQDMT');
 
@@ -77,7 +75,7 @@ EXEC SQLCHECK('FCLLLIVHUDLXGJG');
 -- Ex 11:
 
 11.
-SELECT TITULO, ROUND (LIVROS.PRECO_TABELA/LIVROS.PAGINAS , 2 ) as "Custo página", CEIL(LIVROS.PRECO_TABELA/LIVROS.PAGINAS) as "Custo pág.(sup)",FLOOR(LIVROS.PRECO_TABELA/LIVROS.PAGINAS) as "Custo pág.(inf)" 
+SELECT TITULO, ROUND (LIVROS.PRECO_TABELA/LIVROS.PAGINAS , 2 ) as "Custo pÃ¡gina", CEIL(LIVROS.PRECO_TABELA/LIVROS.PAGINAS) as "Custo pÃ¡g.(sup)",FLOOR(LIVROS.PRECO_TABELA/LIVROS.PAGINAS) as "Custo pÃ¡g.(inf)" 
 FROM LIVROS
 WHERE LIVROS.PAGINAS >= 400 AND LIVROS.PAGINAS <= 700
 ORDER BY round((LIVROS.PRECO_TABELA/LIVROS.PAGINAS), 2) ASC;
@@ -87,7 +85,7 @@ EXEC SQLCHECK('FCIOICFIWPKKPDU');
 -- Ex 12
 
 12.
-SELECT upper(titulo) as "Titulo (em maiúsculas)", lower(titulo) as "Titulo (em minúsculas)", initcap(titulo) as "Titulo (1ª  letra maiúscula)"
+SELECT upper(titulo) as "Titulo (em maiÃºsculas)", lower(titulo) as "Titulo (em minÃºsculas)", initcap(titulo) as "Titulo (1Âª  letra maiÃºscula)"
 FROM LIVROS;
 
 EXEC SQLCHECK('FCDEAPRJKRNHXWY');
@@ -97,7 +95,7 @@ EXEC SQLCHECK('FCDEAPRJKRNHXWY');
 13.
 SELECT TITULO as "Titulo"
 FROM LIVROS
-WHERE GENERO like 'informática';
+WHERE GENERO like 'informÃ¡tica';
 
 EXEC SQLCHECK('FCVLAQFKHBCPVUT');
 
