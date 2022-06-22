@@ -1,13 +1,11 @@
-EXEC NALUNO (2020121705);
-
 --EX 3:
 3.
-select TITULO, PRECO_TABELA as PRECO,tab.avglivro as "PRECO_MEDIO", (PRECO_TABELA - tab.avglivro) as "DIFEREN«A"
+select TITULO, PRECO_TABELA as PRECO,tab.avglivro as "PRECO_MEDIO", (PRECO_TABELA - tab.avglivro) as "DIFEREN√áA"
 from LIVROS, (SELECT l.CODIGO_AUTOR,avg(PRECO_TABELA) avglivro
                       FROM LIVROS l,AUTORES
-                      WHERE lower(genero) like '%inform·tica%'
+                      WHERE lower(genero) like '%inform√°tica%'
                       GROUP BY l.CODIGO_AUTOR)tab
-WHERE LIVROS.CODIGO_AUTOR = tab.CODIGO_AUTOR and lower(genero) like '%inform·tica%'
+WHERE LIVROS.CODIGO_AUTOR = tab.CODIGO_AUTOR and lower(genero) like '%inform√°tica%'
 GROUP BY TITULO,PRECO_TABELA,tab.avglivro
 ORDER by 1;
 
@@ -66,7 +64,7 @@ EXEC SQLCHECK('FICQADRGLVCOPJU');
 
 --EX 8:
 8.
-select 'O autor ' || aut.nome || ' escreveu ' || count(livros.codigo_livro) || ' e ' || tab.num_edit || ' sob a alÁada da editora FCA - EDITORA' as "Resultado"
+select 'O autor ' || aut.nome || ' escreveu ' || count(livros.codigo_livro) || ' e ' || tab.num_edit || ' sob a al√ßada da editora FCA - EDITORA' as "Resultado"
 from autores aut, livros, (select codigo_autor, count(codigo_livro) as num_edit
                            from livros l, editoras e
                            where l.codigo_editora = e.codigo_editora
